@@ -1,0 +1,66 @@
+[
+  {
+    "id": "calderdale",
+    "group": "Calderdale",
+    "towns": [
+      "Halifax",
+      "Elland",
+      "Copley",
+      "Greetland",
+      "Norwood Green",
+      "Northowram",
+      "Southowram",
+      "Brighouse",
+      "Rastick",
+      "Sowerby Bridge",
+      "Ripponden",
+      "Sowood",
+      "Holywell Green",
+      "Luddenden Foot",
+      "Mytholmroyd",
+      "Cragg Vale",
+      "Hebden Bridge",
+      "Wainstalls",
+      "Mount Tabor",
+      "Mixenden",
+      "Ovenden",
+      "Boothtown",
+      "Shelf",
+      "Hipperholme"
+    ]
+  },
+  {
+    "id": "kirklees",
+    "group": "Kirklees",
+    "towns": [
+      "Huddersfield",
+      "Outlane",
+      "Birchencliffe",
+      "Lindley",
+      "Oakes",
+      "Bradley",
+      "Fartown",
+      "Birkby",
+      "Lockwood",
+      "Almondbury",
+      "Golcar",
+      "Milnsbridge",
+      "Linthwaite",
+      "Slaithwaite",
+      "Mirfield",
+      "Ravensthorpe",
+      "Batley",
+      "Birstall",
+      "Gomersal",
+      "Cleckheaton",
+      "Heckmondwike",
+      "Birkenshaw",
+      "Oakenshaw"
+    ]
+  },
+  {
+    "id": "other-areas",
+    "group": "Other areas",
+    "towns": ["Queensbury", "Thornton", "Denholme", "Wyke", "Drighlington"]
+  }
+]

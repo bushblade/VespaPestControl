@@ -1,0 +1,10 @@
+---
+import { renderInline } from '../lib/richText'
+
+interface Props {
+  text: string
+}
+const { text } = Astro.props
+---
+
+<p set:html={renderInline(text)} />

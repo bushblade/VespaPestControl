@@ -1,0 +1,6 @@
+dist
+node_modules
+.astro
+.netlify
+*.log
+.DS_Store

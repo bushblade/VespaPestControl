@@ -1,0 +1,110 @@
+---
+import { Image } from 'astro:assets'
+import { images } from '../data/images'
+import { site } from '../data/site'
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About Us' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/area-coverage', label: 'Areas' },
+  { href: '/contactus', label: 'Contact Us' },
+]
+---
+
+<header class="sticky top-0 z-50 border-b border-charcoal-100 bg-white/90 backdrop-blur">
+  <div class="container-page flex h-16 items-center justify-between gap-4">
+    <a href="/" class="flex shrink-0 items-center gap-3" aria-label="Vespa Pest Control Ltd home">
+      <Image
+        src={images['logo-no-border']}
+        alt="Vespa Pest Control Ltd"
+        class="h-9 w-auto"
+        width={300}
+      />
+    </a>
+
+    <nav class="hidden items-center gap-1 lg:flex" aria-label="Main navigation">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'rounded-md px-3 py-2 text-sm font-medium text-charcoal-800 transition-colors hover:text-brand-700',
+            Astro.url.pathname === link.href && 'text-brand-700',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href={site.phoneHref}
+      class="btn btn-accent hidden shrink-0 md:inline-flex"
+      aria-label={`Call ${site.name} on ${site.phone}`}
+    >
+      <svg
+        class="h-4 w-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+        />
+      </svg>
+      {site.phone}
+    </a>
+
+    <button
+      type="button"
+      class="inline-flex h-10 w-10 items-center justify-center rounded-md text-charcoal-800 hover:bg-charcoal-100 lg:hidden"
+      aria-label="Open menu"
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+    </button>
+  </div>
+
+  <div data-mobile-menu class="hidden border-t border-charcoal-100 bg-white lg:hidden">
+    <nav class="container-page flex flex-col py-2" aria-label="Mobile navigation">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          data-menu-link
+          class:list={[
+            'rounded-md px-3 py-3 text-base font-medium text-charcoal-800 hover:bg-charcoal-50',
+            Astro.url.pathname === link.href && 'text-brand-700',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href={site.phoneHref} data-menu-link class="btn btn-accent mx-3 my-3">
+        Call {site.phone}
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('[data-menu-toggle]')
+  const menu = document.querySelector('[data-mobile-menu]')
+  const links = document.querySelectorAll('[data-menu-link]')
+
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false
+    toggle.setAttribute('aria-expanded', String(open))
+  })
+  links.forEach((link) =>
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden')
+      toggle?.setAttribute('aria-expanded', 'false')
+    }),
+  )
+</script>

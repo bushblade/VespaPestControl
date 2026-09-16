@@ -1,0 +1,95 @@
+---
+const serviceOptions = [
+  'Wasps',
+  'Rats and Mice',
+  'Bees',
+  'Insects and Spiders',
+  'Viral / Bacterial Decontamination',
+  'Rodent Proofing',
+  'Commercial Contract',
+  'Other',
+]
+---
+
+<form
+  name="contact"
+  method="POST"
+  action="/contactus/thanks"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="grid gap-5"
+>
+  <input type="hidden" name="form-name" value="contact" />
+  <p class="hidden">
+    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+  </p>
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div>
+      <label for="name" class="block text-sm font-medium text-charcoal-800">
+        Name <span class="text-brand-700">*</span>
+      </label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        required
+        autocomplete="name"
+        class="mt-1.5 w-full rounded-md border border-charcoal-200 px-3.5 py-2.5 text-sm shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+      />
+    </div>
+    <div>
+      <label for="phone" class="block text-sm font-medium text-charcoal-800">
+        Phone <span class="text-brand-700">*</span>
+      </label>
+      <input
+        id="phone"
+        name="phone"
+        type="tel"
+        required
+        autocomplete="tel"
+        class="mt-1.5 w-full rounded-md border border-charcoal-200 px-3.5 py-2.5 text-sm shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+      />
+    </div>
+  </div>
+
+  <div>
+    <label for="email" class="block text-sm font-medium text-charcoal-800">Email</label>
+    <input
+      id="email"
+      name="email"
+      type="email"
+      autocomplete="email"
+      class="mt-1.5 w-full rounded-md border border-charcoal-200 px-3.5 py-2.5 text-sm shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+    />
+  </div>
+
+  <div>
+    <label for="service" class="block text-sm font-medium text-charcoal-800">
+      What do you need help with?
+    </label>
+    <select
+      id="service"
+      name="service"
+      class="mt-1.5 w-full rounded-md border border-charcoal-200 bg-white px-3.5 py-2.5 text-sm shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+    >
+      <option value="">Please select...</option>
+      {serviceOptions.map((option) => <option value={option}>{option}</option>)}
+    </select>
+  </div>
+
+  <div>
+    <label for="message" class="block text-sm font-medium text-charcoal-800">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      class="mt-1.5 w-full rounded-md border border-charcoal-200 px-3.5 py-2.5 text-sm shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-200"
+    ></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-accent w-full sm:w-auto">Send enquiry</button>
+  <p class="text-xs text-charcoal-500">
+    We aim to reply as soon as we can. If it's urgent, call us on the number above.
+  </p>
+</form>

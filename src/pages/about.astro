@@ -1,0 +1,114 @@
+---
+import { Image } from 'astro:assets'
+import Prose from '../components/Prose.astro'
+import { images } from '../data/images'
+import { openingHours, site } from '../data/site'
+import Layout from '../layouts/Layout.astro'
+
+const intro = [
+  'We are a local, family run Pest Control and Viral / Bacterial Decontamination Company that covers Halifax, West Yorkshire and the surrounding areas, working in private houses (including housing association) and commercial properties.',
+  'We can help you control Rats, Mice, Wasps, Fleas, Bedbugs, Flies, Ants and more.',
+  'Our Officers are trained and qualified to the highest industry standards and are DBS checked.',
+]
+
+const body = [
+  'A big focus for us is Safety. We are trained to perform the safest methods of action to eradicate pests first and have a full range of PPE for yours and our protection.',
+  'We are so keen on protecting the Environment, we have adopted 100% Electric vans to offset our carbon footprint. Our vans have minimalist livery so you know who we are but the general public is unaware you are having a Pest Controller visit.',
+  'Our goal is to provide a proficient, reliable and affordable service. Quality does not always go hand in hand with value for money and it seems harder and harder these days to find workers you can trust. To achieve this, most of our prices are agreed up front, so no nasty surprises and we will take you through our treatment process step by step. We carry identification with us for your benefit and our Officers are subject to a Disclosure and Barring Service check for yours and our peace of mind (see: [Gov.uk DBS checks](https://www.gov.uk/government/organisations/disclosure-and-barring-service/about)).',
+  'Our rates are competitive and we use the industry\u2019s best quality Pesticides and Virucidal / Bactericidal Preparations, so you get a professional experience without being exploited.',
+  'We believe that professional pest control should be established on Integrated Pest Management (IPM). This is the co-ordinated use of environmental information with feasible pest control systems to prevent unacceptable levels of pest damage by the most economical means and with the least possible hazard to people, property and the environment.',
+]
+---
+
+<Layout
+  title="About Us | Vespa Pest Control Ltd Halifax"
+  description="Vespa Pest Control Ltd is a local, family run pest control and decontamination company in Halifax, West Yorkshire. Qualified, DBS checked and using 100% electric vans."
+>
+  <section class="bg-charcoal-950 text-white">
+    <div class="container-page py-14 lg:py-20">
+      <p class="text-sm font-semibold uppercase tracking-wider text-wasp-400">About Us</p>
+      <h1 class="mt-2 font-display text-4xl font-bold sm:text-5xl">Vespa Pest Control Ltd</h1>
+      <p class="mt-3 max-w-2xl text-charcoal-300">
+        A local, family run company serving Halifax, West Yorkshire and the surrounding areas.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page grid gap-10 py-14 lg:grid-cols-3 lg:py-20">
+    <div class="space-y-4 lg:col-span-2">
+      <div class="prose-content space-y-4 text-charcoal-700">
+        {intro.map((paragraph) => <Prose text={paragraph} />)}
+      </div>
+
+      <a href={site.phoneHref} class="btn btn-accent mt-2">
+        Call {site.phone}
+      </a>
+
+      <figure class="mt-8 overflow-hidden rounded-2xl">
+        <Image
+          src={images['working-kitchen']}
+          alt="Vespa pest control officer working safely in a kitchen"
+          class="h-72 w-full object-cover lg:h-80"
+          widths={[640, 960, 1280]}
+        />
+        <figcaption class="sr-only">Our officers are trained to perform the safest methods of pest eradication.</figcaption>
+      </figure>
+
+      <div class="prose-content mt-8 space-y-4 text-charcoal-700">
+        {body.map((paragraph) => <Prose text={paragraph} />)}
+      </div>
+
+      <figure class="mt-8 overflow-hidden rounded-2xl">
+        <Image
+          src={images['electric-van']}
+          alt="Vespa Pest Control's 100% electric van"
+          class="h-72 w-full object-cover lg:h-80"
+          widths={[640, 960, 1280]}
+        />
+        <figcaption class="sr-only">We use 100% electric vans to offset our carbon footprint.</figcaption>
+      </figure>
+
+      <p class="mt-8 font-display text-xl font-semibold text-charcoal-950">
+        Call us today for a quote.
+      </p>
+    </div>
+
+    <aside class="space-y-8">
+      <div class="rounded-2xl border border-charcoal-100 bg-charcoal-50 p-6">
+        <h2 class="font-display text-lg font-semibold text-charcoal-950">Our Working Week</h2>
+        <ul class="mt-3 space-y-1.5 text-sm text-charcoal-700">
+          <li>{openingHours.week}</li>
+          <li>{openingHours.weekend}</li>
+          <li>{openingHours.note}</li>
+        </ul>
+        <p class="mt-5 border-t border-charcoal-200 pt-4 text-sm text-charcoal-700">
+          Our phone line is covered most of the day. If we are unable to take your call as we are
+          busy or it is out of hours, just leave a message and we'll get back to you.
+        </p>
+        <p class="mt-3 text-sm font-medium text-charcoal-800">We also accept texts and WhatsApp.</p>
+      </div>
+
+      <div class="rounded-2xl border border-charcoal-100 bg-white p-6">
+        <h2 class="font-display text-lg font-semibold text-charcoal-950">Accreditations</h2>
+        <div class="mt-4 grid gap-4">
+          <Image
+            src={images.bpca}
+            alt="BPCA accredited pest control"
+            class="w-full rounded-lg border border-charcoal-100"
+            widths={[400, 640]}
+          />
+          <Image
+            src={images.insurance}
+            alt="Bradshaw insurance cover"
+            class="w-full rounded-lg border border-charcoal-100"
+            widths={[400, 640]}
+          />
+        </div>
+      </div>
+
+      <a href="/area-coverage" class="btn btn-outline w-full">
+        Click here to check if we cover your area
+      </a>
+    </aside>
+  </section>
+</Layout>

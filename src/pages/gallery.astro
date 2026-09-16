@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+import { galleryImages } from '../data/images'
+import Layout from '../layouts/Layout.astro'
+
+const items = (await getCollection('gallery')).sort((a, b) => a.data.order - b.data.order)
+const captionNotes = [
+  'Ladybird Larva (beginning of July was a very active time for these little critters)',
+  'Mice were hiding in here... not a surprise really',
+  'Pretty bad Bed Bug infestation, lots of evidence on site',
+  'First sign of big wasps nest was influx of Wasps in Attic',
+  'Active Wasps Nest',
+  'Mid removal of Nest',
+  'Stages of Wasp pupation (Left to Right - larva to Adult)',
+  'Cross section of Cells in a Wasps Nest',
+  'Nest behind a light fitting',
+  'Wasp caught foraging and the damage they have done to a bush',
+  'An old picture of (accidental) mouse evidence, this shows most of what we look for',
+]
+---
+
+<Layout
+  title="Gallery | Vespa Pest Control Ltd Halifax"
+  description="See wasp nest removal, rat and mouse infestations, and more from our work around Halifax, West Yorkshire."
+>
+  <section class="bg-charcoal-950 text-white">
+    <div class="container-page py-14 lg:py-20">
+      <p class="text-sm font-semibold uppercase tracking-wider text-wasp-400">Our Gallery</p>
+      <h1 class="mt-2 font-display text-4xl font-bold sm:text-5xl">What We Encounter</h1>
+      <p class="mt-3 max-w-2xl text-charcoal-300">
+        Here are some of the things we've encountered this year, more to follow. Pictures from left
+        to right (then L to R on next row).
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page py-14 lg:py-20">
+    <ol class="mb-10 space-y-1 rounded-2xl border border-charcoal-100 bg-charcoal-50 p-6 text-sm text-charcoal-700">
+      {captionNotes.map((note, index) => (
+        <li>{index + 1}) {note}</li>
+      ))}
+      <li class="mt-2 font-medium text-charcoal-800">...and a few more...</li>
+    </ol>
+
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {items.map((item) => {
+        const img = galleryImages[item.data.imageKey as keyof typeof galleryImages]
+        const content = (
+          <figure class="group overflow-hidden rounded-xl border border-charcoal-100 bg-white">
+            <div class="aspect-square overflow-hidden bg-charcoal-100">
+              <Image
+                src={img}
+                alt={item.data.caption}
+                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+                widths={[480, 640]}
+              />
+            </div>
+            {item.data.caption && (
+              <figcaption class="px-4 py-3 text-sm text-charcoal-700">{item.data.caption}</figcaption>
+            )}
+          </figure>
+        )
+        return item.data.linked ? (
+          <a href="#" aria-label={item.data.caption}>
+            {content}
+          </a>
+        ) : (
+          content
+        )
+      })}
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/sora";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-50: #f2f7f2;
+  --color-brand-100: #e0ece1;
+  --color-brand-200: #c2d9c6;
+  --color-brand-300: #98bea1;
+  --color-brand-400: #6b9d77;
+  --color-brand-500: #4a8057;
+  --color-brand-600: #386643;
+  --color-brand-700: #2e5238;
+  --color-brand-800: #27422f;
+  --color-brand-900: #213728;
+  --color-brand-950: #111f15;
+
+  --color-wasp-50: #fffbea;
+  --color-wasp-100: #fff3c4;
+  --color-wasp-200: #ffe585;
+  --color-wasp-300: #ffd046;
+  --color-wasp-400: #ffbc1b;
+  --color-wasp-500: #f39e0a;
+  --color-wasp-600: #d77706;
+  --color-wasp-700: #b35309;
+  --color-wasp-800: #91400e;
+  --color-wasp-900: #78350f;
+  --color-wasp-950: #451a03;
+
+  --color-charcoal-50: #f6f7f7;
+  --color-charcoal-100: #e1e4e5;
+  --color-charcoal-200: #c5cacd;
+  --color-charcoal-300: #a2a9ae;
+  --color-charcoal-400: #7e878e;
+  --color-charcoal-500: #636c74;
+  --color-charcoal-600: #515961;
+  --color-charcoal-700: #454c53;
+  --color-charcoal-800: #3c4248;
+  --color-charcoal-900: #252a2f;
+  --color-charcoal-950: #171a1e;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white font-sans text-charcoal-900 antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold transition-colors;
+  }
+  .btn-primary {
+    @apply bg-brand-700 text-white hover:bg-brand-800;
+  }
+  .btn-accent {
+    @apply bg-wasp-500 text-charcoal-950 hover:bg-wasp-400;
+  }
+  .btn-outline {
+    @apply border border-charcoal-200 text-charcoal-900 hover:border-brand-500 hover:text-brand-700;
+  }
+  .prose-content a {
+    @apply font-medium text-brand-700 underline decoration-brand-300 underline-offset-2 hover:text-brand-800;
+  }
+  .prose-content strong {
+    @apply font-semibold text-charcoal-950;
+  }
+}

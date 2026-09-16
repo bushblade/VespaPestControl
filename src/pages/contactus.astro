@@ -1,0 +1,122 @@
+---
+import { Image } from 'astro:assets'
+import ContactForm from '../components/ContactForm.astro'
+import { images } from '../data/images'
+import { site } from '../data/site'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  title="Contact Us | Vespa Pest Control Ltd Halifax"
+  description="Contact Vespa Pest Control Ltd in Halifax for pest control, wasp nest removal and decontamination. Call 07869 071264, email us or send an enquiry online."
+>
+  <section class="bg-charcoal-950 text-white">
+    <div class="container-page py-14 lg:py-20">
+      <p class="text-sm font-semibold uppercase tracking-wider text-wasp-400">Contact Us</p>
+      <h1 class="mt-2 font-display text-4xl font-bold sm:text-5xl">Vespa Pest Control Ltd</h1>
+      <p class="mt-3 max-w-2xl text-charcoal-300">
+        The best way to get in touch is to call us. We can explain the whole process in more detail
+        and explain what safety measures we could put in place and the logistics behind your
+        treatment.
+      </p>
+    </div>
+  </section>
+
+  <section class="container-page py-14 lg:py-20">
+    <div class="grid gap-12 lg:grid-cols-2">
+      <div class="space-y-8">
+        <div class="rounded-2xl bg-brand-900 p-8 text-center">
+          <h2 class="font-display text-xl font-semibold text-white">Call for a Quote</h2>
+          <a
+            href={site.phoneHref}
+            class="mt-3 block font-display text-3xl font-bold text-wasp-400 hover:text-wasp-300 sm:text-4xl"
+          >
+            {site.phone}
+          </a>
+          <p class="mt-3 text-sm text-brand-100">
+            Our phone line is covered most of the day (usually 7am until 7pm). If we are unable to
+            take your call as we are busy or it is out of hours, just leave a message and we'll get
+            back to you.
+          </p>
+        </div>
+
+        <div class="rounded-2xl border border-charcoal-100 bg-charcoal-50 p-8">
+          <h2 class="font-display text-lg font-semibold text-charcoal-950">Email Us</h2>
+          <p class="mt-2 text-sm text-charcoal-600">
+            If email's are your thing, you can contact us this way. We check our server early
+            morning and early evening so we don't miss anyone. We will reply as soon as we can.
+          </p>
+          <a
+            href={`mailto:${site.email}`}
+            class="mt-3 block font-semibold text-brand-700 hover:text-brand-800"
+          >
+            {site.email}
+          </a>
+        </div>
+
+        <div class="rounded-2xl border border-charcoal-100 bg-white p-8">
+          <h2 class="font-display text-lg font-semibold text-charcoal-950">Write to Us</h2>
+          <p class="mt-2 text-sm text-charcoal-600">If you prefer to write to us, send a letter to:</p>
+          <address class="mt-3 space-y-1 text-charcoal-800 not-italic">
+            <p class="font-semibold">Vespa Pest Control Ltd</p>
+            <p>{site.address.line1}</p>
+            <p>{site.address.line2}</p>
+            <p>{site.address.city}</p>
+            <p>{site.address.county}</p>
+            <p>{site.address.postcode}</p>
+          </address>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <a
+            href={site.socials.instagram}
+            target="_blank"
+            rel="noopener"
+            class="btn btn-outline"
+          >
+            Check out our Instagram
+          </a>
+          <a
+            href={site.socials.facebook}
+            target="_blank"
+            rel="noopener"
+            class="btn btn-outline"
+          >
+            Check out our Facebook
+          </a>
+        </div>
+
+        <a
+          href={site.maps}
+          target="_blank"
+          rel="noopener"
+          class="block overflow-hidden rounded-2xl border border-charcoal-100"
+        >
+          <Image
+            src={images['google-maps-blank']}
+            alt="Find Vespa Solutions on Google Maps"
+            class="h-40 w-full object-cover"
+            widths={[640, 960]}
+          />
+          <span class="flex items-center justify-center gap-2 bg-brand-700 px-4 py-3 text-center text-sm font-semibold text-white hover:bg-brand-800">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+            </svg>
+            Find Vespa Solutions on Google Maps
+          </span>
+        </a>
+      </div>
+
+      <div class="rounded-2xl border border-charcoal-100 bg-white p-6 shadow-sm sm:p-8">
+        <h2 class="font-display text-2xl font-semibold text-charcoal-950">Send an Enquiry</h2>
+        <p class="mt-2 text-sm text-charcoal-600">
+          Tell us a little about the problem and we'll get back to you as soon as we can.
+        </p>
+        <div class="mt-6">
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
