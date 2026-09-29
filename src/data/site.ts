@@ -18,6 +18,8 @@ export const site = {
     facebook: 'https://m.facebook.com/Vespa-solutions-102141712160859/',
   },
   maps: 'https://g.page/Vespa-Solutions',
+  // wa.me universal link: opens the WhatsApp app on mobile and WhatsApp Web on desktop.
+  whatsapp: 'https://wa.me/447869071264',
   featuredOn: 'https://www.pestcontrolhalifax.co.uk',
   wildlifeBlog: 'https://www.myherbivoretales.blogspot.com',
 } as const
