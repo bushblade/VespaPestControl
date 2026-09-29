@@ -7,12 +7,12 @@ interface Props {
   service: CollectionEntry<'services'>
 }
 const { service } = Astro.props
-const { title, imageKey, imageAlt, excerpt, body } = service.data
+const { title, formService, imageKey, imageAlt, excerpt, body } = service.data
 const img = images[imageKey as keyof typeof images]
 const summary = excerpt ?? body[0]
 ---
 
-<a href="/contactus" class="group flex flex-col overflow-hidden rounded-2xl border border-charcoal-100 bg-white shadow-sm transition-shadow hover:shadow-lg">
+<a href={`/contactus?service=${encodeURIComponent(formService)}`} class="group flex flex-col overflow-hidden rounded-2xl border border-charcoal-100 bg-white shadow-sm transition-shadow hover:shadow-lg">
   <div class="relative aspect-4/3 overflow-hidden bg-charcoal-100">
     <Image
       src={img}

@@ -6,6 +6,7 @@ const services = defineCollection({
   loader: glob({ base: './src/content/services', pattern: '**/*.json' }),
   schema: z.object({
     title: z.string(),
+    formService: z.string(),
     imageKey: z.string(),
     imageAlt: z.string(),
     excerpt: z.string().optional(),
