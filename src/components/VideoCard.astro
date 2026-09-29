@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+import { galleryVideoThumbs } from '../data/images'
+
+interface Props {
+  item: CollectionEntry<'videos'>
+}
+const { item } = Astro.props
+const { title, youtubeId } = item.data
+const thumb = galleryVideoThumbs[item.id as keyof typeof galleryVideoThumbs]
+---
+
+<figure class="group overflow-hidden rounded-xl border border-charcoal-100 bg-white">
+  <div class="relative aspect-video overflow-hidden bg-charcoal-100">
+    <Image
+      src={thumb}
+      alt=""
+      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+      loading="lazy"
+      widths={[480, 640]}
+    />
+    <button
+      type="button"
+      class="absolute inset-0 flex items-center justify-center bg-charcoal-950/30 transition-colors hover:bg-charcoal-950/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-wasp-400"
+      data-youtube-id={youtubeId}
+      data-video-title={title}
+      aria-label={`Play video: ${title}`}
+    >
+      <span
+        class="flex h-14 w-14 items-center justify-center rounded-full bg-wasp-400 text-charcoal-950 shadow-lg transition-transform group-hover:scale-110"
+      >
+        <svg class="ml-1 h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+      </span>
+    </button>
+  </div>
+  <figcaption class="px-4 py-3 text-sm text-charcoal-700">{title}</figcaption>
+</figure>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('button[data-youtube-id]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const youtubeId = button.dataset.youtubeId
+      if (!youtubeId) return
+
+      const wrapper = document.createElement('div')
+      wrapper.className = 'absolute inset-0'
+
+      const iframe = document.createElement('iframe')
+      iframe.className = 'h-full w-full'
+      iframe.src = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0`
+      iframe.title = button.dataset.videoTitle ?? ''
+      iframe.allow =
+        'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+      iframe.allowFullscreen = true
+      iframe.loading = 'lazy'
+      wrapper.appendChild(iframe)
+
+      button.parentElement?.replaceChild(wrapper, button)
+    })
+  })
+</script>

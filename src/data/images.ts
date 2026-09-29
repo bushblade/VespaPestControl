@@ -16,6 +16,12 @@ import ratFood from '../assets/gallery/rat-food.jpg'
 import ratFootprints from '../assets/gallery/rat-footprints.jpg'
 import ratProofing from '../assets/gallery/rat-proofing.jpg'
 import uvRatTrail from '../assets/gallery/uv-rat-trail.jpg'
+import videoAntsNuptialFlight from '../assets/gallery/videos/ants-nuptial-flight.jpg'
+import videoBedbugs from '../assets/gallery/videos/bedbugs.jpg'
+import videoRatsWildlifeCam from '../assets/gallery/videos/rats-wildlife-cam.jpg'
+import videoTrickyWaspsNest from '../assets/gallery/videos/tricky-wasps-nest.jpg'
+import videoUnusualWaspsNest from '../assets/gallery/videos/unusual-wasps-nest.jpg'
+import videoWaspsNestAttic from '../assets/gallery/videos/wasps-nest-attic.jpg'
 import waspEradication from '../assets/gallery/wasp-eradication.jpg'
 import waspForaging from '../assets/gallery/wasp-foraging.jpg'
 import waspLarva from '../assets/gallery/wasp-larva.jpg'
@@ -73,5 +79,15 @@ export const galleryImages = {
   'rat-proofing': ratProofing,
 } as const
 
+export const galleryVideoThumbs = {
+  'wasps-nest-attic': videoWaspsNestAttic,
+  'ants-nuptial-flight': videoAntsNuptialFlight,
+  'tricky-wasps-nest': videoTrickyWaspsNest,
+  'unusual-wasps-nest': videoUnusualWaspsNest,
+  'rats-wildlife-cam': videoRatsWildlifeCam,
+  bedbugs: videoBedbugs,
+} as const
+
 export type ImageKey = keyof typeof images
 export type GalleryImageKey = keyof typeof galleryImages
+export type GalleryVideoThumbKey = keyof typeof galleryVideoThumbs

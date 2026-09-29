@@ -56,6 +56,7 @@ netlify.toml           # Netlify build config
 
 - **Services**: add/edit JSON in `src/content/services/*.json`. Keys: `title`, `imageKey` (must match a key in `src/data/images.ts`), `imageAlt`, `body` (array of paragraphs; supports `**bold**` and `[label](https://...)`).
 - **Gallery**: `src/content/gallery/items.json`. Fields: `caption`, `imageKey`, `order`.
+- **Gallery videos**: `src/content/gallery/videos.json`. Fields: `title`, `youtubeId`, `order`. Thumbnails are self-hosted — add one to `src/assets/gallery/videos`, register it in `galleryVideoThumbs` in `src/data/images.ts`, and key it by the entry `id`.
 - **Areas**: `src/content/areas/coverage.json`. Fields: `group`, `towns`.
 
 ## Images

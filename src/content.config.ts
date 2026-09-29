@@ -22,6 +22,15 @@ const gallery = defineCollection({
   }),
 })
 
+const videos = defineCollection({
+  loader: file('src/content/gallery/videos.json'),
+  schema: z.object({
+    title: z.string(),
+    youtubeId: z.string(),
+    order: z.number(),
+  }),
+})
+
 const areas = defineCollection({
   loader: file('src/content/areas/coverage.json'),
   schema: z.object({
@@ -30,4 +39,4 @@ const areas = defineCollection({
   }),
 })
 
-export const collections = { services, gallery, areas }
+export const collections = { services, gallery, videos, areas }
