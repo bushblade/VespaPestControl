@@ -19,7 +19,6 @@ const gallery = defineCollection({
     caption: z.string(),
     imageKey: z.string(),
     order: z.number(),
-    linked: z.boolean().default(false),
   }),
 })
 

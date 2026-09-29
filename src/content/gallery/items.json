@@ -3,29 +3,25 @@
     "id": "ladybird-larva",
     "caption": "Ladybird Larva",
     "imageKey": "ladybird-larva",
-    "order": 1,
-    "linked": true
+    "order": 1
   },
   {
     "id": "mouse-harbourage",
     "caption": "Mice were hiding in here... not a surprise really",
     "imageKey": "mouse-harbourage",
-    "order": 2,
-    "linked": true
+    "order": 2
   },
   {
     "id": "bedbug-infestation",
     "caption": "Pretty bad Bed Bug infestation, lots of evidence on site",
     "imageKey": "bedbug-infestation",
-    "order": 3,
-    "linked": true
+    "order": 3
   },
   {
     "id": "wasp-eradication",
     "caption": "First sign of big wasps nest was influx of Wasps in Attic",
     "imageKey": "wasp-eradication",
-    "order": 4,
-    "linked": true
+    "order": 4
   },
   {
     "id": "wasps-nest-loft",

@@ -55,7 +55,7 @@ netlify.toml           # Netlify build config
 ## Content editing (no markup changes needed)
 
 - **Services**: add/edit JSON in `src/content/services/*.json`. Keys: `title`, `imageKey` (must match a key in `src/data/images.ts`), `imageAlt`, `body` (array of paragraphs; supports `**bold**` and `[label](https://...)`).
-- **Gallery**: `src/content/gallery/items.json`. Fields: `caption`, `imageKey`, `order`, `linked`.
+- **Gallery**: `src/content/gallery/items.json`. Fields: `caption`, `imageKey`, `order`.
 - **Areas**: `src/content/areas/coverage.json`. Fields: `group`, `towns`.
 
 ## Images

@@ -60,7 +60,7 @@ netlify.toml           # Netlify build config
 No markup changes are needed to update the site's content.
 
 - **Services** — add or edit JSON in `src/content/services/*.json`. Keys: `title`, `imageKey` (must match a key in `src/data/images.ts`), `imageAlt`, `body` (array of paragraphs; supports `**bold**` and `[label](https://...)`).
-- **Gallery** — `src/content/gallery/items.json`. Fields: `caption`, `imageKey`, `order`, `linked`.
+- **Gallery** — `src/content/gallery/items.json`. Fields: `caption`, `imageKey`, `order`.
 - **Areas** — `src/content/areas/coverage.json`. Fields: `group`, `towns`.
 
 Site-wide constants (phone, email, address, social links, opening hours) live in `src/data/site.ts`.

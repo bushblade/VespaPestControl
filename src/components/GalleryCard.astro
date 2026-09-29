@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets'
+import type { CollectionEntry } from 'astro:content'
+import { galleryImages } from '../data/images'
+
+interface Props {
+  item: CollectionEntry<'gallery'>
+}
+const { item } = Astro.props
+const { caption, imageKey } = item.data
+const img = galleryImages[imageKey as keyof typeof galleryImages]
+---
+
+<figure class="group overflow-hidden rounded-xl border border-charcoal-100 bg-white">
+  <div class="aspect-square overflow-hidden bg-charcoal-100">
+    <Image
+      src={img}
+      alt={caption}
+      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+      loading="lazy"
+      widths={[480, 640]}
+    />
+  </div>
+  <figcaption class="px-4 py-3 text-sm text-charcoal-700">{caption}</figcaption>
+</figure>
