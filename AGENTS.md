@@ -23,6 +23,8 @@ Modern rebuild of [vespasolutions.co.uk](https://www.vespasolutions.co.uk) in **
 | Lint                | `pnpm lint` (`biome check .`) |
 | Regenerate types    | `pnpm astro sync`      |
 
+**After any code edit**, run `pnpm check` (`astro check`) and `pnpm lint` (`biome check .`), and fix anything they report before finishing. OpenCode V2 does not run language servers, so these commands are the source of type and lint diagnostics.
+
 Run `astro check`, `biome check`, and a production `pnpm build` before committing.
 
 ## Project layout

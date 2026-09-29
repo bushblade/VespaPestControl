@@ -1,26 +1,25 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "lsp": true,
-  "permission": {
-    "bash": {
-      "*": "ask",
-      "pnpm *": "allow",
-      "rm *": "ask",
-      "grep *": "allow"
-    },
-    "edit": "ask",
-    "webfetch": "allow",
-    "read": "allow"
-  },
+  "permissions": [
+    { "action": "shell", "resource": "*", "effect": "ask" },
+    { "action": "shell", "resource": "pnpm *", "effect": "allow" },
+    { "action": "shell", "resource": "rm *", "effect": "ask" },
+    { "action": "shell", "resource": "grep *", "effect": "allow" },
+    { "action": "edit", "resource": "*", "effect": "ask" },
+    { "action": "webfetch", "resource": "*", "effect": "allow" },
+    { "action": "read", "resource": "*", "effect": "allow" }
+  ],
   "formatter": {
     "biome": { "enabled": true }
   },
   "mcp": {
-    "Astro docs": {
-      "type": "remote",
-      "url": "https://mcp.docs.astro.build/mcp",
-      "enabled": true
+    "servers": {
+      "Astro docs": {
+        "type": "remote",
+        "url": "https://mcp.docs.astro.build/mcp",
+        "disabled": false
+      }
     }
   },
-  "agent": {}
+  "agents": {}
 }
