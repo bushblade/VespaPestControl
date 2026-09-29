@@ -16,6 +16,7 @@ export const site = {
   socials: {
     instagram: 'http://www.instagram.com/vespa_solutions',
     facebook: 'https://m.facebook.com/Vespa-solutions-102141712160859/',
+    youtube: 'https://www.youtube.com/@vespasolutions445',
   },
   maps: 'https://g.page/Vespa-Solutions',
   // wa.me universal link: opens the WhatsApp app on mobile and WhatsApp Web on desktop.

@@ -3,6 +3,7 @@ import { openingHours, site } from '../data/site'
 import FacebookIcon from './FacebookIcon.astro'
 import InstagramIcon from './InstagramIcon.astro'
 import WhatsAppIcon from './WhatsAppIcon.astro'
+import YouTubeIcon from './YouTubeIcon.astro'
 
 const eradication = [
   'Wasps',
@@ -53,6 +54,15 @@ const proofing = ['Rats', 'Mice', 'Squirrels', 'Pigeons']
           aria-label="Vespa on Facebook"
         >
           <FacebookIcon class="h-5 w-5" />
+        </a>
+        <a
+          href={site.socials.youtube}
+          target="_blank"
+          rel="noopener"
+          class="rounded-md p-2 text-charcoal-300 hover:bg-charcoal-900 hover:text-white"
+          aria-label="Vespa on YouTube"
+        >
+          <YouTubeIcon class="h-5 w-5" />
         </a>
         <a
           href={site.whatsapp}
