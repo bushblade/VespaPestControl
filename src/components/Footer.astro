@@ -114,14 +114,16 @@ const proofing = ['Rats', 'Mice', 'Squirrels', 'Pigeons']
         <p>{site.address.city}</p>
         <p>{site.address.postcode}</p>
       </address>
-      <div class="mt-4 space-y-1.5 text-sm">
-        <a href={site.phoneHref} class="font-semibold text-wasp-400 hover:text-wasp-300">
+      <div class="mt-4 flex flex-col items-start text-sm">
+        <a
+          href={site.phoneHref}
+          class="inline-block py-1 font-semibold text-wasp-400 hover:text-wasp-300"
+        >
           {site.phone}
         </a>
-        <br />
         <a
           href={`mailto:${site.email}?subject=Enquiry`}
-          class="break-all text-charcoal-200 hover:text-white"
+          class="inline-block break-all py-1 text-charcoal-200 hover:text-white"
         >
           {site.email}
         </a>
@@ -137,7 +139,7 @@ const proofing = ['Rats', 'Mice', 'Squirrels', 'Pigeons']
           href={site.featuredOn}
           target="_blank"
           rel="noopener"
-          class="text-charcoal-200 hover:text-white"
+          class="text-charcoal-200 underline decoration-charcoal-500 underline-offset-2 hover:text-white"
         >
           pestcontrolhalifax.co.uk
         </a>
@@ -148,7 +150,7 @@ const proofing = ['Rats', 'Mice', 'Squirrels', 'Pigeons']
           href={site.wildlifeBlog}
           target="_blank"
           rel="noopener"
-          class="text-charcoal-200 hover:text-white"
+          class="text-charcoal-200 underline decoration-charcoal-500 underline-offset-2 hover:text-white"
         >
           Herbivore Tales
         </a>
